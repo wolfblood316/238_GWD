@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lab4
+</title>
+<style>
+#pic {
+	width:400px;
+	height:300px;
+}
+nav a{
+	color:#396;
+	padding:1em;
+	font: 2em/2 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+p{font:1.25em/1.6 "Lucida Console", Monaco, monospace}
+</style>
+</head>
+
+<body>
+	<nav id="cars">
+		<a href="images/car1.jpeg" title="car1">pic1</a>
+		<a href="images/car2.jpeg" title="car2">pic2</a>
+		<a href="images/car3.jpeg" title="car3">pic3</a>
+	</nav>
+    
+	<img id="pic" src="images/car1.jpeg" alt="js gallery" />
+    
+	<p id="caption">Caption text here</p>
+	<script>
+			var cars = document.getElementById('cars');
+			var pic = document.querySelector('#pic');
+			var caption = document.querySelector('#caption');
+			var links = document.querySelectorAll('#cars a');
+			
+	for(var i=0; i <links.length; i++)
+	{
+		links[i].onclick = changePic;
+		
+		
+	}
+		
+		
+		function changePic(e)
+		{
+			e.preventDefault();
+			pic.src = e.target.href;
+			
+			caption.firstChild.nodeValue = e.target.title;
+		}
+		
+		
+		
+	</script>
+</body>
+</html>
