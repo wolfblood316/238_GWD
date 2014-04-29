@@ -29,29 +29,33 @@ p{font:1.25em/1.6 "Lucida Console", Monaco, monospace}
     
 	<p id="caption">Caption text here</p>
 	<script>
-			var cars = document.getElementById('cars');
-			var pic = document.querySelector('#pic');
-			var caption = document.querySelector('#caption');
-			var links = document.querySelectorAll('#cars a');
+	
+	
+	var gallery = {
+	
+	init: function(e)
+	{
+			//var cars = document.getElementById('cars');
 			
+			
+			
+	var links = document.querySelectorAll('#cars a');		
 	for(var i=0; i <links.length; i++)
 	{
-		links[i].onclick = changePic;
-		
-		
+		links[i].onclick =gallery.changePic;
 	}
 		
-		
-		function changePic(e)
+		changePic:function(e)
 		{
 			e.preventDefault();
+			var pic = document.querySelector('#pic');
+			var caption = document.ElementById('caption');
 			pic.src = e.target.href;
-			
 			caption.firstChild.nodeValue = e.target.title;
 		}
-		
-		
-		
+	}
+	}
+		window.onload = gallery.init;
 	</script>
 </body>
 </html>
