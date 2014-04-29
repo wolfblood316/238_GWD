@@ -9,20 +9,41 @@
 	width:400px;
 	height:300px;
 }
-nav a{
+#main{
 	color:#396;
 	padding:1em;
 	font: 2em/2 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
-p{font:1.25em/1.6 "Lucida Console", Monaco, monospace}
+#caption{font:1.25em/1.6 "Lucida Console", Monaco, monospace}
+.hide{}
 </style>
 </head>
 
 <body>
-	<nav id="cars">
-		<a href="images/car1.jpeg" title="car1">pic1</a>
-		<a href="images/car2.jpeg" title="car2">pic2</a>
-		<a href="images/car3.jpeg" title="car3">pic3</a>
+	<nav id="albums">
+    	<a href="#album1" title="cars">cars</a>
+    	<a href="#album2" title="clouds">clouds</a>
+    	<a href="#album3" title="frogs">frogs</a>
+    </nav>
+    
+	<nav id="main">
+    	<div id="album1">
+		<a href="images/car1.jpeg" title="car1">car1</a>
+		<a href="images/car2.jpeg" title="car2">car2</a>
+		<a href="images/car3.jpeg" title="car3">car3</a>
+        </div>
+        
+        <div id="album2">
+		<a href="images/car1.jpeg" title="cloud1">cloud1</a>
+		<a href="images/car2.jpeg" title="cloud2">cloud2</a>
+		<a href="images/car3.jpeg" title="cloud3">cloud3</a>
+        </div>
+        
+        <div id="album3">
+		<a href="images/car1.jpeg" title="frog1">frog1</a>
+		<a href="images/car2.jpeg" title="frog2">frog2</a>
+		<a href="images/car3.jpeg" title="frog3">frog3</a>
+        </div>
 	</nav>
     
 	<img id="pic" src="images/car1.jpeg" alt="js gallery" />
@@ -34,27 +55,51 @@ p{font:1.25em/1.6 "Lucida Console", Monaco, monospace}
 	var gallery = {
 	
 	init: function(e)
-	{
-			//var cars = document.getElementById('cars');
-			
-			
-			
-	var links = document.querySelectorAll('#cars a');		
+	{		
+	var links = document.querySelectorAll('#main a');		
 	for(var i=0; i <links.length; i++)
 	{
 		links[i].onclick =gallery.changePic;
 	}
+	    //setup links in albums nav
+		var albums =document.querySelector('#albums a');
+		for(var j=0; j< albums.length;j++)
+		{
+			ablums[j].onclick = gallery.changeAlbum;
+		}
 		
-		changePic:function(e)
+		//hide all the ablum divs
+			var divs = document.querySelectorAll('#main div');
+			for(var k=0; k< divs.length; k++)
+			{
+				divs[k].classList.add('hide');
+			}
+			
+			divs[0].classList.remove('hide');
+	},
+		
+		
+		changePic: function(e)
 		{
 			e.preventDefault();
 			var pic = document.querySelector('#pic');
 			var caption = document.ElementById('caption');
 			pic.src = e.target.href;
 			caption.firstChild.nodeValue = e.target.title;
+		},
+		changeAlbum: function(e)
+		{
+			e.preventDefault();
+			//hide all the ablum divs
+			var divs = document.querySelectorAll('#main div');
+			for(var i=0; i< divs.length; i++)
+			{
+				divs[i].classList.add('hide')
+			}
+			//show
 		}
 	}
-	}
+	
 		window.onload = gallery.init;
 	</script>
 </body>
