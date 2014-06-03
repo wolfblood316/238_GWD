@@ -1,6 +1,6 @@
 <div class="sidebar1">
 
-  	<?php include('include/nav.php'); ?>
+  	<?php include('includes/nav.php'); ?>
    
     <aside>
       <p> The above links demonstrate a basic navigational structure using an unordered list styled with CSS. Use this as a starting point and modify the properties to produce your own unique look. If you require flyout menus, create your own using a Spry menu, a menu widget from Adobe's Exchange or a variety of other javascript or CSS solutions.</p>

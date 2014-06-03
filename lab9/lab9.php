@@ -12,10 +12,10 @@
 <body>
 
 <div class="container">
-<?php include('include/header.php'); ?>
+<?php include('includes/header.php'); ?>
     
     
-    <?php require_once('include/sidebar1.php'); ?>
+    <?php require_once('includes/sidebar1.php'); ?>
   
   <article class="content">
     <h1>Instructions</h1>
@@ -38,7 +38,7 @@
     <h4>Backgrounds</h4>
     <p>By nature, the background color on any block element will only show for the length of the content. If you'd like a dividing line instead of a color, place a border on the side of the .content block (but only if it will always contain more content).</p>
   </aside>
-  <?php include('include/footer.php'); ?>
+  <?php include('includes/footer.php'); ?>
   <!-- end .container --></div>
 </body>
 </html>
